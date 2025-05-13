@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Scorpion Hotel</title>
+    <!-- <link rel="stylesheet" href="contact.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+:root {
+    --primary-color: #c19a6b;
+    --dark-bg: #1a1a1a;
+    --light-text: #ffffff;
+    --section-spacing: 3rem;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--light-text);
+    background-color: var(--dark-bg);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.head {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.head a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.head a:hover {
+    background: rgba(193, 154, 107, 0.1);
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    margin: var(--section-spacing) 0 1.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+p {
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: var(--light-text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(193, 154, 107, 0.3);
+}
+
+input[type="button"] {
+    width: auto;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+input[type="button"]:hover {
+    background-color: #a87f52;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+li:hover {
+    transform: translateX(10px);
+}
+
+h3 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.social-icons a {
+    color: var(--light-text);
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .social-icons {
+        gap: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    input[type="button"] {
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+    <p class="head"><a href="index.html">Back to Home</a></p>
+
+    <h1>Contact Us</h1>
+    <p>We're here to help! Get in touch with us for inquiries, reservations, or special requests.</p>
+
+    <h2>Hotel Contact Information</h2>
+    <p>123 Luxury Street, Maitama, Abuja, Nigeria</p>
+    <p>Phone: +234 800 123 4567</p>
+    <p>Email: contact@scorpionhotel.com</p>
+
+
+    <h2>Send Us a Message</h2>
+    <form method="POST" action="#">
+        
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" placeholder="Enter 11-digit phone number" required>
+        <br><br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        <br><br>
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <br><br>
+
+        <label for="contact-method">Preferred Contact Method:</label>
+        <select id="contact-method" name="contact-method" required>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+        </select>
+        <br><br>
+
+        <label for="contact-time">Best Time to Contact You:</label>
+        <input type="time" id="contact-time" name="contact-time" required>
+        <br><br>
+
+        <input type="button" onclick="alert('Message Sent!')" value="Submit">
+    </form>
+
+    
+
+    <h2>Frequently Asked Questions (FAQs)</h2>
+    <ul>
+        <li>
+            <h3> What are the check-in and check-out times?</h3>
+            <p>Check-in is from 2:00 PM, and check-out is before 12:00 PM.</p>
+        </li>
+        <li>
+            <h3> Is parking available?</h3>
+            <p>Yes, we offer free parking for all our guests.</p>
+        </li>
+        <li>
+            <h3> Do you accept card payments?</h3>
+            <p>Yes, we accept Visa, MasterCard, and mobile payments.</p>
+        </li>
+        <li>
+            <h3> Can I bring my pet?</h3>
+            <p>Unfortunately, we do not allow pets in the hotel.</p>
+        </li>
+        <li>
+            <h3> What is your cancellation policy?</h3>
+            <p>Cancellations made 48 hours before check-in are free of charge.</p>
+        </li>
+    </ul>
+    
+    
+    <h2>Follow Us</h2>
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    
+
+</body>
+</html>
