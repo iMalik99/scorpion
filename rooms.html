@@ -1,81 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Rooms</title>
-<link rel="stylesheet" href="rooms.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scorpion Hotel | Rooms & Suites</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="rooms.css"> </head>
 <body>
-<header>
-  <a href="index.html">Back to Home</a>
-  <a href="booking.html" target="_blank">Book a Room</a>
-</header>
+    <header class="rooms-header">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">Scorpion Hotel</a>
 
-<main>
-  <h1>Our Rooms</h1>
-  
-  <ul class="room-list">
-    <li class="room-card">
-      <div class="room-image-container">
-        <img src="standard.webp" alt="Standard Room" class="room-image">
-        <div class="room-overlay"></div>
-      </div>
-      <div class="room-content">
-        <h3 class="room-title">Standard Room</h3>
-        <p>Our comfortable standard rooms offer all the essentials for a pleasant stay, featuring modern amenities and a cozy atmosphere.</p>
-        <div class="price">$150 per night</div>
-        <ul class="room-features">
-          <li>Queen Bed</li>
-          <li>Free Wi-Fi</li>
-          <li>TV</li>
-          <li>Mini Fridge</li>
-        </ul>
-        <a href="booking.html" class="book-now">Book Now</a>
-      </div>
-    </li>
-    
-    <li class="room-card">
-      <div class="room-image-container">
-        <img src="deluxe.webp" alt="Deluxe Room" class="room-image">
-        <div class="room-overlay"></div>
-      </div>
-      <div class="room-content">
-        <h3 class="room-title">Deluxe Room</h3>
-        <p>Step up to our deluxe rooms for additional space and enhanced amenities, perfect for those seeking extra comfort during their stay.</p>
-        <div class="price">$200 per night</div>
-        <ul class="room-features">
-          <li>King Bed</li>
-          <li>Free Wi-Fi</li>
-          <li>Smart TV</li>
-          <li>Mini Bar</li>
-          <li>Workspace</li>
-        </ul>
-        <a href="booking.html" class="book-now">Book Now</a>
-      </div>
-    </li>
-    
-    <li class="room-card">
-      <div class="room-image-container">
-        <img src="executive.webp" alt="Executive Room" class="room-image">
-        <div class="room-overlay"></div>
-      </div>
-      <div class="room-content">
-        <h3 class="room-title">Executive Room</h3>
-        <p>Experience premium luxury in our executive rooms, featuring exclusive amenities and spacious layouts for the discerning traveler.</p>
-        <div class="price">$300 per night</div>
-        <ul class="room-features">
-          <li>King Bed</li>
-          <li>Free Wi-Fi</li>
-          <li>65" OLED TV</li>
-          <li>Premium Mini Bar</li>
-          <li>Lounge Area</li>
-          <li>Executive Bathroom</li>
-        </ul>
-        <a href="booking.html" class="book-now">Book Now</a>
-      </div>
-    </li>
-  </ul>
-</main>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle Navigation"/>
+                <label for="menu-toggle" class="hamburger">
+                    <span class="hamb-line"></span>
+                    <span class="hamb-line"></span>
+                    <span class="hamb-line"></span>
+                </label>
+        
+                <ul class="nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="rooms.html">Rooms & Suites</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="rooms-hero-content text-center">
+            <h1>Our Luxurious Rooms & Suites</h1>
+            <p class="hero-subtitle">Find Your Perfect Haven of Comfort and Elegance</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="room-overview" class="room-overview-section">
+            <div class="container">
+                <p class="section-lead">At Scorpion Hotel, every room and suite is a testament to refined living, meticulously designed to provide an unparalleled experience of luxury and tranquility. From cozy retreats to expansive havens, discover the perfect space tailored to your desires.</p>
+            </div>
+        </section>
+
+        <section id="room-types" class="room-types-section">
+            <div class="container">
+                <ul class="room-list">
+                    <li class="room-card">
+                        <div class="room-image-container">
+                            <img src="standard.png" alt="Standard Room at Scorpion Hotel" class="room-image">
+                            <div class="room-overlay"></div>
+                        </div>
+                        <div class="room-content">
+                            <h3 class="room-title">Standard Room</h3>
+                            <p>Our comfortable Standard Rooms offer all the essentials for a pleasant stay, featuring modern amenities and a cozy, inviting atmosphere. Ideal for solo travelers or couples seeking a serene retreat.</p>
+                            <div class="price">₦50,000 per night</div>
+                            <ul class="room-features">
+                                <li><i class="fas fa-bed"></i> Queen Bed</li>
+                                <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                                <li><i class="fas fa-tv"></i> Smart TV</li>
+                                <li><i class="fas fa-wine-bottle"></i> Mini Fridge</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </li>
+                    
+                    <li class="room-card">
+                        <div class="room-image-container">
+                            <img src="deluxe.png" alt="Deluxe Room at Scorpion Hotel" class="room-image">
+                            <div class="room-overlay"></div>
+                        </div>
+                        <div class="room-content">
+                            <h3 class="room-title">Deluxe Room</h3>
+                            <p>Step up to our Deluxe Rooms for additional space and enhanced amenities, perfect for those seeking extra comfort and a touch of indulgence during their stay.</p>
+                            <div class="price">₦75,000 per night</div>
+                            <ul class="room-features">
+                                <li><i class="fas fa-bed"></i> King Bed</li>
+                                <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                                <li><i class="fas fa-tv"></i> Smart TV</li>
+                                <li><i class="fas fa-cocktail"></i> Mini Bar</li>
+                                <li><i class="fas fa-briefcase"></i> Dedicated Workspace</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </li>
+                    
+                    <li class="room-card">
+                        <div class="room-image-container">
+                            <img src="executive.png" alt="Executive Suite at Scorpion Hotel" class="room-image">
+                            <div class="room-overlay"></div>
+                        </div>
+                        <div class="room-content">
+                            <h3 class="room-title">Executive Suite</h3>
+                            <p>Experience premium luxury in our Executive Suites, featuring exclusive amenities, a separate lounge area, and expansive layouts for the discerning traveler seeking ultimate comfort and style.</p>
+                            <div class="price">₦120,000 per night</div>
+                            <ul class="room-features">
+                                <li><i class="fas fa-bed"></i> King Bed</li>
+                                <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                                <li><i class="fas fa-tv"></i> 65" OLED TV</li>
+                                <li><i class="fas fa-glass-martini-alt"></i> Premium Mini Bar</li>
+                                <li><i class="fas fa-couch"></i> Separate Lounge Area</li>
+                                <li><i class="fas fa-bath"></i> Luxurious Ensuite Bathroom</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="booking-cta-section text-center">
+            <div class="container">
+                <h2>Ready to Reserve Your Perfect Room?</h2>
+                <p>Don't miss out on your luxurious escape. Book directly for the best rates and guaranteed comfort.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h3>Scorpion Hotel</h3>
+                <p>Experience unparalleled luxury and comfort in the heart of Abuja. Your serene escape awaits.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                   <li><a href="about.html">About</a></li>
+                    <li><a href="rooms.html">Rooms & Suites</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Ave, Abuja, Nigeria</p>
+                <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@scorpionhotel.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2025 Scorpion Hotel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

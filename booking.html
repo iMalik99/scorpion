@@ -3,82 +3,778 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Booking</title>
-    <link rel="stylesheet" href="booking.css">
+    <title>Scorpion Hotel | Book Your Stay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-color: #DAA520;
+            --dark-color: #1a1a1a;
+            --light-gold: #F4E5B1;
+            --soft-white: #f5f5f5;
+            --dark-gray-text: #333333;
+            --mid-gray-text: #555555;
+            --light-border: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-dark: rgba(0, 0, 0, 0.15);
+            --white: #ffffff;
+            --navbar-dark-blue-grey: rgba(44, 62, 80, 0.9); /* Your specified navbar color with opacity */
+            --logo-hover-color: #A0522D; /* Sienna for logo hover */
+            --transition-speed-fast: 0.2s;
+            --transition-speed-medium: 0.3s;
+            --transition-speed-slow: 0.5s; /* Slower transition for logo hover */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--soft-white);
+            min-height: 100vh;
+            color: var(--dark-gray-text);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            padding-top: 5rem; /* Space for fixed navbar */
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--navbar-dark-blue-grey);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            padding: 1rem 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: center; /* Center the logo now that other elements are gone */
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            text-shadow: 0 1px 5px rgba(218, 165, 32, 0.2);
+            margin-bottom: 0;
+            text-decoration: none;
+            transition: color var(--transition-speed-slow) ease; /* Slower transition for logo */
+        }
+
+        .navbar .logo:hover {
+            color: var(--logo-hover-color);
+        }
+
+        /* Removed nav-links and hamburger-menu styles as they are no longer in use */
+        /* .nav-links, .hamburger-menu { display: none; } */
+
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.05), rgba(218, 165, 32, 0.02));
+            margin-top: 5rem; /* Pushes content down below fixed navbar */
+        }
+
+        .hero .logo { /* Styles for the logo within the hero section */
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem; /* Larger for main hero */
+            font-weight: 700;
+            color: var(--dark-color); /* Darker color on light background */
+            margin-bottom: 0.5rem;
+            text-shadow: none; /* No text-shadow */
+            text-decoration: none;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--mid-gray-text);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0 4rem;
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        /* Booking Form */
+        .booking-form-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid var(--light-border);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            position: relative;
+        }
+
+        .booking-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-color), var(--light-gold), var(--gold-color));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .form-title {
+            color: var(--gold-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-subtitle {
+            color: var(--mid-gray-text);
+            margin-bottom: 2.5rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: var(--dark-color);
+            border-bottom: 1px solid var(--light-border);
+            padding-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray-text);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: var(--soft-white);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            color: var(--dark-gray-text);
+            font-size: 1rem;
+            transition: all var(--transition-speed-fast) ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-color);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+            transform: none;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--mid-gray-text);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23DAA520'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 20px;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Room Cards */
+        .room-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .room-card {
+            background: var(--soft-white);
+            border: 2px solid var(--light-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-speed-fast) ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-light);
+        }
+
+        .room-card:hover {
+            border-color: var(--gold-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--shadow-light);
+        }
+
+        .room-card.selected {
+            border-color: var(--gold-color);
+            background: rgba(218, 165, 32, 0.05);
+            box-shadow: 0 0 0 4px rgba(218, 165, 32, 0.2);
+        }
+
+        .room-name {
+            color: var(--gold-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .room-price {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .room-features {
+            color: var(--mid-gray-text);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(45deg, var(--gold-color), var(--light-gold));
+            color: var(--dark-color);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed-fast) ease;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px var(--shadow-light);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(218, 165, 32, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Info Panel */
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            border: 1px solid var(--light-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-icon {
+            font-size: 3rem;
+            color: var(--gold-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .info-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .info-description {
+            color: var(--mid-gray-text);
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-features {
+            list-style: none;
+        }
+
+        .info-features li {
+            color: var(--mid-gray-text);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-features li::before {
+            content: '✨';
+            font-size: 1.2rem;
+            color: var(--gold-color);
+        }
+
+        /* Success Animation */
+        .success-animation {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            text-align: center;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--gold-color);
+            box-shadow: 0 15px 40px var(--shadow-dark);
+            animation: fadeIn var(--transition-speed-medium) ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: var(--gold-color);
+            margin-bottom: 1rem;
+        }
+
+        .success-text {
+            font-size: 1.8rem;
+            color: var(--gold-color);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .success-subtext {
+            color: var(--mid-gray-text);
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .booking-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .room-selection {
+                grid-template-columns: 1fr;
+            }
+            /* Nav links and hamburger menu removed, so no need for their specific media query styles */
+        }
+
+        @media (max-width: 768px) {
+            .navbar-content {
+                justify-content: center; /* Ensure logo remains centered on smaller screens */
+            }
+            .container {
+                padding: 0 1.5rem;
+            }
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+            .booking-form-container, .info-card {
+                padding: 2rem;
+            }
+            .form-title {
+                font-size: 2rem;
+            }
+            .success-animation {
+                width: 90%;
+                padding: 2rem;
+            }
+            .success-icon {
+                font-size: 4rem;
+            }
+            .success-text {
+                font-size: 1.4rem;
+            }
+            .success-subtext {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 4rem; /* Adjust padding for smaller navbar on very small screens */
+            }
+            .navbar {
+                padding: 0.8rem 0; /* Smaller padding for smaller navbar */
+            }
+            .container {
+                padding: 0 0.8rem;
+            }
+            .hero {
+                padding: 2rem 0;
+                margin-top: 4rem; /* Adjust hero margin for smaller navbar */
+            }
+            .hero .logo {
+                font-size: 2.8rem;
+            }
+            .main-content {
+                padding: 1.5rem 0 3rem;
+            }
+            .navbar .logo {
+                font-size: 1.8rem;
+            }
+            .booking-form-container {
+                padding: 1.5rem;
+            }
+            .form-title {
+                font-size: 1.5rem;
+            }
+            .form-subtitle {
+                font-size: 1rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .room-card {
+                padding: 1rem;
+            }
+            .info-card {
+                padding: 1.5rem;
+            }
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header id="top">
-        <h2>Book Your Stay</h2>
-        <p>Complete the form below to reserve your room. Our team will confirm your booking shortly.</p>
-    </header>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">Scorpion Hotel</a>
+            </div>
+    </nav>
 
-    <section id="reservation">
-        <form method="POST" action="#">
-            
-            <label for="full-name">Full Name:</label>
-            <input type="text" id="full-name" name="full-name" required>
-            <p></p>
-             
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
-            <p></p>
-               
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" pattern="\d{11}" title="Phone number must be exactly 11 digits" required>
-            <p></p>    
-            
-            <label for="checkin">Check-in Date:</label>
-            <input type="date" id="checkin" name="checkin" required>
-            <p></p>   
-            
-            <label for="checkout">Check-out Date:</label>
-            <input type="date" id="checkout" name="checkout" required>
-            <p></p>
-       
-            <label for="room-type">Room Type:</label>
-            <select id="room-type" name="room-type" required>
-                <option value="" disabled selected>Select a room</option>
-                <option value="standard">Standard Room</option>
-                <option value="deluxe">Deluxe Room</option>
-                <option value="executive">Executive Suite</option>
-            </select>
-            <p></p>
-           
-            <label for="guest-type">Guest Type:</label>
-            <select id="guest-type" name="guest-type" required>
-                <option value="" disabled selected>Select guest type</option>
-                <option value="solo">Solo Traveler</option>
-                <option value="couple">Couple</option>
-                <option value="family">Family</option>
-                <option value="business">Business Traveler</option>
-            </select>
-            <p></p>
-            
-            <label for="requests">Special Requests (Optional):</label>
-            <textarea id="requests" name="requests" rows="3" placeholder="Let us know any special requests..."></textarea>
-            <p></p>  
-            
-            <label for="payment">Preferred Payment Method:</label><br>
-
-                <input type="radio" id="credit-card" name="payment" value="credit-card" required>
-                <label for="credit-card">Credit Card</label><br>
-
-                <input type="radio" id="paypal" name="payment" value="paypal">
-                <label for="paypal">PayPal</label><br>
-
-                <input type="radio" id="bank-transfer" name="payment" value="bank-transfer">
-                <label for="bank-transfer">Bank Transfer</label><br>
-
-                <input type="radio" id="cash" name="payment" value="cash">
-                <label for="cash">Pay at Hotel</label><br>
-            <p></p>
-            
-            <label for="arrival-time">Estimated Arrival Time:</label>
-            <input type="time" id="arrival-time" name="arrival-time" required>
-            <p></p>
-    
-            <input type="button" onclick="alert('Reservation Successful!')" value="Confirm Reservation">
-        </form>
+    <section class="hero">
+        <div class="container">
+            <p class="tagline">Where Luxury Meets Serenity</p>
+        </div>
     </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="booking-grid">
+                <div class="booking-form-container">
+                    <h2 class="form-title">Reserve Your Stay</h2>
+                    <p class="form-subtitle">Experience unparalleled luxury and comfort</p>
+                    
+                    <form id="bookingForm">
+                        <div class="form-section">
+                            <h3 class="section-title">Guest Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-input" placeholder="John" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-input" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-input" placeholder="john@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-input" placeholder="+234 801 234 5678" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Stay Details</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Check-in Date</label>
+                                    <input type="date" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Check-out Date</label>
+                                    <input type="date" class="form-input" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Adults</label>
+                                    <select class="form-select" required>
+                                        <option value="1">1 Adult</option>
+                                        <option value="2">2 Adults</option>
+                                        <option value="3">3 Adults</option>
+                                        <option value="4">4 Adults</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Children</label>
+                                    <select class="form-select">
+                                        <option value="0">No Children</option>
+                                        <option value="1">1 Child</option>
+                                        <option value="2">2 Children</option>
+                                        <option value="3">3 Children</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Choose Your Room</h3>
+                            <div class="room-selection">
+                                <div class="room-card" onclick="selectRoom(this, 'standard')">
+                                    <div class="room-name">Standard Room</div>
+                                    <div class="room-price">₦45,000/night</div>
+                                    <div class="room-features">Queen bed • City view • 25m²</div>
+                                </div>
+                                <div class="room-card" onclick="selectRoom(this, 'deluxe')">
+                                    <div class="room-name">Deluxe Suite</div>
+                                    <div class="room-price">₦75,000/night</div>
+                                    <div class="room-features">King bed • Balcony • 40m²</div>
+                                </div>
+                                <div class="room-card" onclick="selectRoom(this, 'executive')">
+                                    <div class="room-name">Executive Suite</div>
+                                    <div class="room-price">₦120,000/night</div>
+                                    <div class="room-features">King bed • Living area • 60m²</div>
+                                </div>
+                                <div class="room-card" onclick="selectRoom(this, 'presidential')">
+                                    <div class="room-name">Presidential Suite</div>
+                                    <div class="room-price">₦250,000/night</div>
+                                    <div class="room-features">Master bedroom • Dining • 120m²</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Special Requests</h3>
+                            <div class="form-group full-width">
+                                <label class="form-label">Any special requirements or preferences? (Optional)</label>
+                                <textarea class="form-textarea" placeholder="e.g., specific room view, extra bed, dietary restrictions..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Reserve Now</span>
+                            <i class="fas fa-crown" style="margin-left: 0.5rem;"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="info-panel">
+                    <div class="info-card">
+                        <div class="info-content">
+                            <div class="info-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 class="info-title">Luxury Experience</h3>
+                            <p class="info-description">Immerse yourself in unparalleled comfort and sophistication at Scorpion Hotel.</p>
+                            <ul class="info-features">
+                                <li>24/7 Concierge Service</li>
+                                <li>Premium Amenities</li>
+                                <li>World-Class Dining</li>
+                                <li>Spa & Wellness Center</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-content">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="info-title">Prime Location</h3>
+                            <p class="info-description">Located in the heart of Abuja, offering easy access to business districts and attractions.</p>
+                            <ul class="info-features">
+                                <li>Central Business District</li>
+                                <li>Airport Transfer Available</li>
+                                <li>Major Attractions Nearby</li>
+                                <li>Shopping & Entertainment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-content">
+                            <div class="info-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="info-title">Your Safety</h3>
+                            <p class="info-description">We prioritize your safety and well-being with comprehensive health protocols.</p>
+                            <ul class="info-features">
+                                <li>Enhanced Cleaning</li>
+                                <li>Contactless Check-in</li>
+                                <li>24/7 Security</li>
+                                <li>Health Protocols</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="successAnimation" class="success-animation">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="success-text">Booking Confirmed!</div>
+        <div class="success-subtext">We'll send you a confirmation email shortly</div>
+    </div>
+
+    <script>
+        // Set minimum date for check-in to today
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelectorAll('input[type="date"]').forEach(input => {
+            input.min = today;
+        });
+
+        // Room selection functionality
+        let selectedRoom = null;
+
+        function selectRoom(element, roomType) {
+            // Remove previous selection
+            document.querySelectorAll('.room-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection to clicked room
+            element.classList.add('selected');
+            selectedRoom = roomType;
+        }
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!selectedRoom) {
+                alert('Please select a room type to proceed with your booking.');
+                return;
+            }
+            
+            // Basic form validation for required fields
+            const requiredInputs = this.querySelectorAll('[required]');
+            let allFieldsValid = true;
+            requiredInputs.forEach(input => {
+                if (!input.value) {
+                    allFieldsValid = false;
+                    input.style.borderColor = '#dc3545'; // Highlight invalid fields
+                } else {
+                    input.style.borderColor = ''; // Reset border for valid fields
+                }
+            });
+
+            if (!allFieldsValid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Show success animation
+            const successAnimation = document.getElementById('successAnimation');
+            successAnimation.style.display = 'block';
+            
+            // Hide success animation after 3 seconds
+            setTimeout(() => {
+                successAnimation.style.display = 'none';
+                // Reset form
+                this.reset();
+                document.querySelectorAll('.room-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+                selectedRoom = null;
+            }, 3000);
+        });
+
+        // Auto-update checkout date when check-in changes
+        document.querySelector('input[type="date"]').addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            const checkoutInput = document.querySelectorAll('input[type="date"]')[1];
+            const minCheckout = new Date(checkinDate);
+            minCheckout.setDate(minCheckout.getDate() + 1); // Checkout must be at least one day after check-in
+            checkoutInput.min = minCheckout.toISOString().split('T')[0];
+
+            // If checkout date is now before the new min, reset it
+            if (checkoutInput.value && new Date(checkoutInput.value) < minCheckout) {
+                checkoutInput.value = '';
+            }
+        });
+
+        // Hamburger menu functionality (Removed as per request)
+        /*
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        */
+    </script>
 </body>
 </html>

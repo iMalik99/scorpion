@@ -1,118 +1,565 @@
+/* --- Booking Page Specific Styles: A New Vision --- */
 
-body, h2, p, label, input, select, textarea {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background: #2c3e50;
-    color: #ecf0f1;
-    padding: 20px;
-    text-align: center;
-}
-
-header h2 {
-    margin-bottom: 10px;
-}
-
-header p {
-    margin-bottom: 20px;
-}
-
-#reservation {
-    max-width: 600px;
-    margin: 20px auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-form {
+/* Base Booking Flow Styles */
+.booking-flow {
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Ensure it takes full viewport height */
+    position: relative;
+    overflow: hidden; /* Hide overflow during transitions */
+    background-color: var(--dark-color); /* Fallback background */
 }
 
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
+/* Individual Booking Steps */
+.booking-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Each step takes full screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%); /* Start off-screen below */
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1; /* Below nav and progress */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-input[type="time"],
-select,
-textarea {
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+.booking-step.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide into view */
+    z-index: 2; /* Active step on top */
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
-input[type="time"]:focus,
-select:focus,
-textarea:focus {
-    border-color: #e74c3c;
+/* Background Overlays for each step */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for text readability */
+    z-index: 0; /* Below content */
+}
+
+/* Background Images for Specific Steps */
+#step-intro {
+    background-image: url('https://googleusercontent.com/image_generation_content/16'); /* Luxurious hotel lobby/foyer */
+}
+#step-contact {
+    background-image: url('https://googleusercontent.com/image_generation_content/19'); /* Elegant desk/study area */
+}
+#step-stay {
+    background-image: url('https://googleusercontent.com/image_generation_content/20'); /* High-end hotel room bed area */
+}
+#step-finalize {
+    background-image: url('https://googleusercontent.com/image_generation_content/21'); /* Sophisticated payment lounge */
+}
+#step-confirmation {
+    background-image: url('https://googleusercontent.com/image_generation_content/22'); /* Welcoming hotel entrance/arrival */
+}
+
+
+/* Content within Steps */
+.step-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    width: 100%;
+    padding: 3rem;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for content card */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Default for titles/subtitles */
+}
+
+.booking-form-segment .step-content {
+    text-align: left; /* Align form labels to the left */
+}
+
+.step-title {
+    font-family: var(--heading-font);
+    font-size: 3.5rem;
+    color: var(--gold-color); /* Use a strong gold for titles */
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.step-subtitle {
+    font-family: var(--body-font);
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+}
+
+/* Form Styling within Steps */
+.booking-form-segment {
+    width: 100%; /* Take full width of step-content */
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 0; /* Handled by grid gap */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.form-group .required {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: white; /* Text color within inputs */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
+    border-color: var(--gold-color); /* Gold border on focus */
+    box-shadow: 0 0 0 4px rgba(218, 165, 32, 0.3); /* Gold glow */
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque on focus */
 }
 
-textarea {
-    resize: vertical; 
+.form-group select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23DAA520'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Custom SVG arrow */
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem; /* Make space for arrow */
 }
 
-fieldset {
-    border: 2px solid #e74c3c;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
-legend {
-    font-weight: bold;
-    color: #e74c3c;
+.form-group.full-width {
+    grid-column: 1 / -1;
 }
 
+/* Payment Options (Dark Theme Styling) */
 .payment-options {
-    display: flex;
-    flex-direction: column;
+    margin-top: 1rem;
 }
 
-.payment-option {
-    margin-bottom: 10px;
+.payment-options label:first-child {
+    color: var(--gold-color); /* Main label in gold */
+    margin-bottom: 1.5rem;
+}
+
+.payment-options .radio-group {
     display: flex;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
-.payment-option input[type="radio"] {
-    margin-right: 10px;
-}
-
-input[type="button"] {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 4px;
+.payment-options .radio-group input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--gold-color); /* Gold border for radio */
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    background-color: transparent;
 }
 
-input[type="button"]:hover {
-    background-color: #c0392b;
+.payment-options .radio-group input[type="radio"]:checked {
+    background-color: var(--gold-color);
+    border-color: var(--gold-color);
+}
+
+.payment-options .radio-group input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--dark-color); /* Dark dot on checked */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.payment-options .radio-group label {
+    font-weight: 400;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0;
+}
+
+.payment-options .radio-group label i {
+    color: rgba(255, 255, 255, 0.7); /* Icon color */
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+.payment-options .radio-group input[type="radio"]:checked + label i {
+    color: var(--gold-color); /* Icon color when checked */
+}
+
+/* Navigation Buttons */
+.form-nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    gap: 1rem;
+}
+
+.btn.btn-primary {
+    background-color: var(--gold-color); /* Gold primary button */
+    color: var(--dark-color);
+    border: 1px solid var(--gold-color);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    flex-grow: 1; /* Allow buttons to grow */
+    max-width: 250px; /* Max width for buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--dark-color);
+    color: var(--gold-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+}
+
+.btn.btn-secondary {
+    background-color: transparent;
+    color: var(--gold-color);
+    border: 1px solid var(--gold-color);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    flex-grow: 1;
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--gold-color);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+}
+
+
+/* Confirmation Step Styling */
+.confirmation-icon {
+    font-size: 6rem;
+    color: var(--gold-color);
+    margin-bottom: 1.5rem;
+    animation: bounceIn 1s ease-out;
+}
+
+.confirmation-detail {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 1rem;
+}
+
+/* Animations */
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+/* Message Box (re-styled for dark theme) */
+.message-box {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute; /* Position relative to parent form-segment */
+    bottom: -2rem; /* Adjust position */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.message-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message-box.hidden {
+    display: none;
+}
+
+.success-message {
+    background-color: rgba(40, 167, 69, 0.2); /* Transparent green */
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.error-message {
+    background-color: rgba(220, 53, 69, 0.2); /* Transparent red */
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Progress Indicator */
+.booking-progress {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Above everything else */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 150px; /* Fixed width for the bar container */
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    background-color: var(--gold-color);
+    width: var(--progress-width, 0%); /* Controlled by JS */
+    transition: width 0.5s ease-out;
+}
+
+.progress-steps {
+    display: flex;
+    gap: 10px;
+}
+
+.step-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.step-dot.active {
+    background-color: var(--gold-color);
+    border-color: white;
+    transform: scale(1.2);
+}
+
+/* Fixed Navigation and Footer adjustment */
+.main-nav.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    z-index: 100; /* Ensure it's on top */
+}
+
+.site-footer.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    z-index: 100; /* Ensure it's on top */
+    padding: 1rem 0; /* Adjust padding for fixed footer */
+    height: auto; /* Allow height to adjust */
+}
+
+.site-footer.fixed-bottom .footer-grid,
+.site-footer.fixed-bottom .footer-bottom {
+    display: none; /* Hide detailed footer content in fixed mode */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .step-content {
+        padding: 2.5rem;
+        max-width: 800px;
+    }
+    .step-title {
+        font-size: 3rem;
+    }
+    .step-subtitle {
+        font-size: 1.2rem;
+    }
+    .form-grid {
+        gap: 1.2rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .step-content {
+        padding: 2rem 1.5rem;
+        border-radius: 10px;
+        margin: 0 1rem; /* Add some side margin */
+    }
+    .step-title {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+    }
+    .step-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* Stack columns on mobiles */
+        gap: 1rem;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 0.9rem 1rem;
+    }
+    .form-nav-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .btn.btn-primary, .btn.btn-secondary {
+        max-width: none; /* Allow full width */
+        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+    }
+    .site-footer.fixed-bottom {
+        padding: 0.5rem 0; /* Smaller padding */
+    }
+    .site-footer.fixed-bottom .social-links {
+        font-size: 1.2rem;
+    }
+    .booking-progress {
+        bottom: 80px; /* Adjust for footer height */
+    }
+}
+
+@media (max-width: 480px) {
+    .step-content {
+        padding: 1.5rem 1rem;
+    }
+    .step-title {
+        font-size: 1.8rem;
+    }
+    .step-subtitle {
+        font-size: 0.95rem;
+    }
+    .form-group label {
+        font-size: 0.9rem;
+    }
+    .confirmation-icon {
+        font-size: 4rem;
+    }
+    .confirmation-detail {
+        font-size: 1rem;
+    }
+}
+
+/* Adjust padding for body to ensure fixed elements don't overlap content */
+body {
+    padding-top: 80px; /* Height of fixed nav */
+    padding-bottom: 80px; /* Height of fixed footer placeholder */
+    overflow: hidden; /* To prevent vertical scrolling due to step transitions */
 }

@@ -1,188 +1,357 @@
+/* --- Contact Page Specific Styles --- */
 
-:root {
-    --primary-color: #c19a6b;
-    --dark-bg: #1a1a1a;
-    --light-text: #ffffff;
-    --section-spacing: 3rem;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--light-text);
-    background-color: var(--dark-bg);
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.head {
-    text-align: left;
-    margin-bottom: 2rem;
-}
-
-.head a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.head a:hover {
-    background: rgba(193, 154, 107, 0.1);
-}
-
-h1, h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary-color);
-    margin: var(--section-spacing) 0 1.5rem;
-}
-
-h1 {
-    font-size: 2.5rem;
+/* Hero/Banner for Contact Page */
+.contact-header {
+    background: url('contact.png') no-repeat center center/cover;
+    /* This image could be a warm, inviting hotel reception area, or a stylish hotel desk setup */
+    height: 70vh; /* Consistent height with Rooms & Amenities pages */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 1rem;
+    color: white;
+    position: relative;
+    padding-top: 80px; /* To account for fixed nav */
 }
 
-h2 {
-    font-size: 2rem;
-    border-left: 4px solid var(--primary-color);
-    padding-left: 1rem;
-}
-
-p {
-    color: #e0e0e0;
-    margin-bottom: 1.5rem;
-}
-
-form {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 10px;
-    margin: 2rem 0;
-}
-
-label {
-    display: block;
-    margin: 1rem 0 0.5rem;
-    color: var(--primary-color);
-    font-weight: 500;
-}
-
-input, textarea, select {
+.contact-header .main-nav {
+    position: absolute; /* Keep nav on top of hero content */
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    color: var(--light-text);
-    font-size: 1rem;
-    transition: all 0.3s ease;
 }
 
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(193, 154, 107, 0.3);
+.contact-hero-content {
+    z-index: 2; /* Ensure content is above background overlay */
+    padding: 1rem;
+    max-width: 900px;
 }
 
-input[type="button"] {
-    width: auto;
-    padding: 1rem 2.5rem;
-    background-color: var(--primary-color);
-    color: var(--dark-bg);
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
+.contact-hero-content h1 {
+    font-size: 3.8rem;
+    color: white;
+    margin-bottom: 0.5rem;
 }
 
-input[type="button"]:hover {
-    background-color: #a87f52;
+.contact-hero-content .hero-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
+/* Contact Intro Section */
+.contact-intro-section {
+    padding: 4rem 0 2rem;
+    background-color: var(--light-color);
 }
 
-li {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+.contact-intro-section .section-lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    color: var(--dark-color);
 }
 
-li:hover {
-    transform: translateX(10px);
+/* Contact Details and Form Section Layout */
+.contact-section-layout {
+    padding: 3rem 0;
+    background-color: #fcf6f0; /* Alternating background */
 }
 
-h3 {
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1/3 for info, 2/3 for form */
+    gap: 3rem;
+    align-items: start; /* Align items to the top */
+}
+
+.contact-info-column, .contact-form-column {
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info-column h2, .contact-form-column h2 {
+    font-size: 2.2rem;
     color: var(--primary-color);
-    margin: 0 0 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.contact-info-column h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-text {
+    font-size: 1rem;
+    color: var(--light-text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.hotel-contact-details p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.hotel-contact-details p i {
+    color: var(--secondary-color);
     font-size: 1.2rem;
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
+.hotel-contact-details a {
+    color: var(--text-color);
+    transition: color var(--transition-speed);
 }
 
-.social-icons a {
-    color: var(--light-text);
-    font-size: 2rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
+.hotel-contact-details a:hover {
     color: var(--primary-color);
 }
 
+.social-icons-contact {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.social-icons-contact a {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.social-icons-contact a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Contact Form Specific Styling */
+.contact-form-column form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-column form label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    font-size: 1rem;
+}
+
+.contact-form-column form input[type="text"],
+.contact-form-column form input[type="email"],
+.contact-form-column form input[type="tel"],
+.contact-form-column form input[type="time"],
+.contact-form-column form select,
+.contact-form-column form textarea {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    background-color: #fefefe;
+}
+
+.contact-form-column form input:focus,
+.contact-form-column form select:focus,
+.contact-form-column form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.15); /* Primary color with transparency */
+}
+
+.contact-form-column form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form-column .btn {
+    margin-top: 1rem;
+    width: auto;
+    padding: 0.9rem 2.5rem;
+}
+
+#form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e6ffe6; /* Light green for success */
+    color: #28a745; /* Dark green text */
+    border: 1px solid #28a745;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#form-message.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#form-message.hidden {
+    display: none; /* Hide completely when not visible */
+}
+
+/* FAQs Section */
+.faqs-section {
+    padding: 5rem 0;
+    background-color: var(--light-color);
+}
+
+.faqs-section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.faq-list {
+    margin-top: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+    font-size: 1.25rem;
+    color: var(--dark-color);
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease; /* Add transition for smooth hover/active */
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    transition: color 0.3s ease; /* Ensure icon color also transitions */
+}
+
+.faq-answer {
+    font-size: 1rem;
+    color: var(--light-text-color);
+    padding: 0 1.5rem 1.2rem;
+    line-height: 1.7;
+    display: none; /* Managed by JavaScript now */
+}
+
+/* Styles for active FAQ question and the arrow */
+.faq-question.active {
+    background-color: var(--secondary-color); /* Matches button hover for consistency */
+    color: white;
+    border-bottom-color: transparent; /* Removes the border line when open */
+}
+
+.faq-question.active i {
+    color: white; /* Change icon color when active */
+}
+
+.faq-question::after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-left: auto; /* Pushes arrow to the right */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-question.active::after {
+    transform: rotate(180deg); /* Rotates the arrow when active */
+    color: white; /* Changes arrow color when active */
+}
+
+
+/* Responsive adjustments for Contact page */
+@media (max-width: 992px) {
+    .contact-hero-content h1 {
+        font-size: 3rem;
+    }
+    .contact-hero-content .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+    }
+    .contact-info-column, .contact-form-column {
+        padding: 2rem;
+    }
+}
 
 @media (max-width: 768px) {
-    body {
-        padding: 1.5rem;
+    .contact-header {
+        height: 35vh;
+        padding-top: 60px;
     }
-
-    h1 {
-        font-size: 2rem;
+    .contact-hero-content h1 {
+        font-size: 2.2rem;
     }
-
-    h2 {
-        font-size: 1.6rem;
+    .contact-hero-content .hero-subtitle {
+        font-size: 1rem;
     }
-
-    form {
-        padding: 1.5rem;
+    .contact-intro-section {
+        padding: 3rem 0 1.5rem;
+    }
+    .section-lead {
+        font-size: 1.1rem;
+    }
+    .contact-section-layout {
+        padding: 2rem 0;
+    }
+    .contact-info-column h2, .contact-form-column h2 {
+        font-size: 1.8rem;
+    }
+    .faqs-section {
+        padding: 3rem 0;
+    }
+    .faq-question {
+        font-size: 1.1rem;
+        padding: 1rem 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    h1 {
+    .contact-hero-content h1 {
         font-size: 1.8rem;
     }
-
-    h2 {
-        font-size: 1.4rem;
+    .contact-info-column, .contact-form-column {
+        padding: 1.5rem;
     }
-
-    .social-icons {
-        gap: 1.5rem;
-        font-size: 1.8rem;
+    .hotel-contact-details p, .faq-question {
+        font-size: 1rem;
     }
-
-    input[type="button"] {
-        width: 100%;
+    .social-icons-contact a {
+        font-size: 1.5rem;
     }
 }

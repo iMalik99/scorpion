@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scorpion Hotel | Luxury Redefined</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="hero">
         <nav class="main-nav">
             <div class="nav-container">
-                <a href="#" class="logo">Scorpion Hotel</a>
+                <a href="index.html" class="logo">Scorpion Hotel</a>
 
-                <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="hamburger">
-            <span class="hamb-line"></span>
-            <span class="hamb-line"></span>
-            <span class="hamb-line"></span>
-        </label>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle Navigation"/>
+                <label for="menu-toggle" class="hamburger">
+                    <span class="hamb-line"></span>
+                    <span class="hamb-line"></span>
+                    <span class="hamb-line"></span>
+                </label>
         
                 <ul class="nav-links">
                     <li><a href="about.html">About</a></li>
                     <li><a href="rooms.html">Rooms & Suites</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -33,38 +33,214 @@
         <div class="hero-content">
             <h1 class="hero-title">Where Luxury Meets Serenity</h1>
             <p class="hero-subtitle">Experience Unparalleled Comfort in the Heart of Abuja</p>
-            <a href="booking.html" class="cta-button">Book Your Stay</a>
+            <a href="#booking" class="cta-button">Book Your Stay</a>
         </div>
     </header>
 
     <main>
-        <section class="quick-links">
-            <div class="link-card">
-                <i class="fas fa-concierge-bell"></i>
-                <h3>24/7 Concierge</h3>
-                <p>Personalized service at your fingertips</p>
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="feature-card">
+                    <i class="fas fa-concierge-bell icon-large"></i>
+                    <h3>24/7 Concierge</h3>
+                    <p>Personalized service at your fingertips, anytime you need.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-spa icon-large"></i>
+                    <h3>Luxury Spa</h3>
+                    <p>Rejuvenate your senses with our exclusive spa treatments.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-wifi icon-large"></i>
+                    <h3>Free Wi-Fi</h3>
+                    <p>Enjoy high-speed internet accessibility throughout your stay.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-utensils icon-large"></i>
+                    <h3>Fine Dining</h3>
+                    <p>Savor exquisite culinary delights at our gourmet restaurant.</p>
+                </div>
             </div>
-            <div class="link-card">
-                <i class="fas fa-spa"></i>
-                <h3>Luxury Spa</h3>
-                <p>Rejuvenate your senses</p>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container about-content">
+                <div class="about-image">
+                    <img src="lobby.png" alt="Hotel Lobby">
+                    </div>
+                <div class="about-text">
+                    <h2>Welcome to Scorpion Hotel</h2>
+                    <p>Nestled in the vibrant heart of Abuja, Scorpion Hotel offers an unrivaled experience of luxury and comfort. Our commitment to excellence ensures every guest enjoys a stay filled with relaxation, impeccable service, and unforgettable memories.</p>
+                    <p>From elegantly designed rooms to world-class amenities, we provide a sanctuary where you can escape the everyday and indulge in serenity. Discover a place where every detail is crafted for your utmost pleasure.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
             </div>
-            <div class="link-card">
-                <i class="fa-solid fa-wifi"></i>
-                <h3>Free Wi-Fi</h3>
-                <p>Enjoy free internet accessibility</p>
+        </section>
+
+        <section id="rooms" class="rooms-section">
+            <div class="container">
+                <h2>Our Exquisite Rooms & Suites</h2>
+                <p class="section-subtitle">Discover your perfect retreat among our luxurious accommodations.</p>
+                <div class="room-grid">
+                    <div class="room-card">
+                        <img src="standard.png" alt="Standard Room">
+                        <h3>Standard Room</h3>
+                        <p>Comfortable and elegantly furnished, perfect for solo travelers.</p>
+                        <span class="price">₦50,000/night</span>
+                    </div>
+                    <div class="room-card">
+                        <img src="deluxe.png" alt="Deluxe Room">
+                        <h3>Deluxe Room</h3>
+                        <p>Spacious and refined, offering enhanced amenities and comfort.</p>
+                        <span class="price">₦75,000/night</span>
+                    </div>
+                    <div class="room-card">
+                        <img src="executive.png" alt="Executive Suite">
+                        <h3>Executive Suite</h3>
+                        <p>Ultimate luxury with separate living areas and breathtaking views.</p>
+                        <span class="price">₦120,000/night</span>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="btn btn-primary">View All Rooms</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="amenities" class="amenities-section">
+            <div class="container">
+                <h2>Our World-Class Amenities</h2>
+                <p class="section-subtitle">Everything you need for a truly luxurious stay.</p>
+                <div class="amenities-grid">
+                    <div class="amenity-item">
+                        <i class="fas fa-swimming-pool icon-medium"></i>
+                        <h4>Infinity Pool</h4>
+                        <p>Relax by our stunning rooftop infinity pool.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-dumbbell icon-medium"></i>
+                        <h4>Fitness Center</h4>
+                        <p>State-of-the-art gym equipment for your workout needs.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-wifi icon-medium"></i>
+                        <h4>High-Speed Wi-Fi</h4>
+                        <p>Complimentary internet access throughout the hotel.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-coffee icon-medium"></i>
+                        <h4>Café & Bar</h4>
+                        <p>Enjoy premium coffee and exquisite cocktails.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-car icon-medium"></i>
+                        <h4>Valet Parking</h4>
+                        <p>Hassle-free parking services for all guests.</p>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-child icon-medium"></i>
+                        <h4>Kids Play Area</h4>
+                        <p>A safe and fun environment for our younger guests.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <h2>Photo Gallery</h2>
+                <p class="section-subtitle">A glimpse into the elegance and comfort of Scorpion Hotel.</p>
+                <div class="gallery-grid">
+                    <img src="interior.png" alt="Hotel Interior">
+                    <img src="exterior.jpg" alt="Hotel Exterior">
+                    <img src="pool.jpg" alt="Hotel Pool">
+                    </div>
+            </div>
+        </section>
+
+        <section id="booking" class="booking-cta-section">
+            <div class="container text-center">
+                <h2>Ready for an Unforgettable Stay?</h2>
+                <p>Book your luxurious experience at Scorpion Hotel today and embark on a journey of comfort and serenity.</p>
+                <a href="booking.html" class="cta-button large-cta">Check Availability & Book Now</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container contact-grid">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions or need assistance? Our team is here to help.</p>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, Abuja, Nigeria</p>
+                        <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                        <p><i class="fas fa-envelope"></i> info@scorpionhotel.com</p>
+                    </address>
+                    <div class="social-links-contact">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h3>Send Us a Message</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
-                        
-        <div class="footer-bottom">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h3>Scorpion Hotel</h3>
+                <p>Experience unparalleled luxury and comfort in the heart of Abuja. Your serene escape awaits.</p>
             </div>
-            <p>&copy; 2025 Scorpion Hotel. All rights reserved.</p>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="rooms.html">Rooms & Suites</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Ave, Abuja, Nigeria</p>
+                <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@scorpionhotel.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2025 Scorpion Hotel. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 </body>

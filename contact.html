@@ -3,284 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Scorpion Hotel</title>
-    <!-- <link rel="stylesheet" href="contact.css"> -->
+    <title>Scorpion Hotel | Contact Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-
-:root {
-    --primary-color: #c19a6b;
-    --dark-bg: #1a1a1a;
-    --light-text: #ffffff;
-    --section-spacing: 3rem;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--light-text);
-    background-color: var(--dark-bg);
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.head {
-    text-align: left;
-    margin-bottom: 2rem;
-}
-
-.head a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.head a:hover {
-    background: rgba(193, 154, 107, 0.1);
-}
-
-h1, h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary-color);
-    margin: var(--section-spacing) 0 1.5rem;
-}
-
-h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 1rem;
-}
-
-h2 {
-    font-size: 2rem;
-    border-left: 4px solid var(--primary-color);
-    padding-left: 1rem;
-}
-
-p {
-    color: #e0e0e0;
-    margin-bottom: 1.5rem;
-}
-
-form {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 10px;
-    margin: 2rem 0;
-}
-
-label {
-    display: block;
-    margin: 1rem 0 0.5rem;
-    color: var(--primary-color);
-    font-weight: 500;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    color: var(--light-text);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(193, 154, 107, 0.3);
-}
-
-input[type="button"] {
-    width: auto;
-    padding: 1rem 2.5rem;
-    background-color: var(--primary-color);
-    color: var(--dark-bg);
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-}
-
-input[type="button"]:hover {
-    background-color: #a87f52;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-}
-
-li {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-li:hover {
-    transform: translateX(10px);
-}
-
-h3 {
-    color: var(--primary-color);
-    margin: 0 0 0.5rem;
-    font-size: 1.2rem;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.social-icons a {
-    color: var(--light-text);
-    font-size: 2rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: var(--primary-color);
-}
-
-
-@media (max-width: 768px) {
-    body {
-        padding: 1.5rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    form {
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-    .social-icons {
-        gap: 1.5rem;
-        font-size: 1.8rem;
-    }
-
-    input[type="button"] {
-        width: 100%;
-    }
-}
-    </style>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css"> </head>
 <body>
-    <p class="head"><a href="index.html">Back to Home</a></p>
+    <header class="contact-header">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">Scorpion Hotel</a>
 
-    <h1>Contact Us</h1>
-    <p>We're here to help! Get in touch with us for inquiries, reservations, or special requests.</p>
-
-    <h2>Hotel Contact Information</h2>
-    <p>123 Luxury Street, Maitama, Abuja, Nigeria</p>
-    <p>Phone: +234 800 123 4567</p>
-    <p>Email: contact@scorpionhotel.com</p>
-
-
-    <h2>Send Us a Message</h2>
-    <form method="POST" action="#">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle Navigation"/>
+                <label for="menu-toggle" class="hamburger">
+                    <span class="hamb-line"></span>
+                    <span class="hamb-line"></span>
+                    <span class="hamb-line"></span>
+                </label>
         
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
+                <ul class="nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="rooms.html">Rooms & Suites</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="contact-hero-content text-center">
+            <h1>Contact Us</h1>
+            <p class="hero-subtitle">We're Here to Help You Plan Your Perfect Stay</p>
+        </div>
+    </header>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
-        <br><br>
+    <main>
+        <section id="contact-intro" class="contact-intro-section">
+            <div class="container">
+                <p class="section-lead">At Scorpion Hotel, your comfort and satisfaction are our top priorities. Whether you have a question about a reservation, need assistance with your stay, or wish to provide feedback, our dedicated team is ready to assist you. Feel free to reach out via phone, email, or by filling out the contact form below.</p>
+            </div>
+        </section>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" placeholder="Enter 11-digit phone number" required>
-        <br><br>
+        <section id="contact-details-and-form" class="contact-section-layout">
+            <div class="container contact-grid">
+                <div class="contact-info-column">
+                    <h2>Reach Out To Us Directly</h2>
+                    <p class="contact-text">Our friendly team is available to answer all your questions and assist with any requests.</p>
+                    
+                    <address class="hotel-contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, Maitama, Abuja, Nigeria</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+2348001234567">+234 800 123 4567</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:contact@scorpionhotel.com">contact@scorpionhotel.com</a></p>
+                    </address>
 
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required>
-        <br><br>
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons-contact">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
 
-        <label for="message">Your Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        <br><br>
+                <div class="contact-form-column">
+                    <h2>Send Us a Message</h2>
+                    <p class="contact-text">Fill out the form below, and we will get back to you as soon as possible.</p>
+                    <form id="contactForm" method="POST" action="#">
+                        <div class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
 
-        <label for="contact-method">Preferred Contact Method:</label>
-        <select id="contact-method" name="contact-method" required>
-            <option value="email">Email</option>
-            <option value="phone">Phone</option>
-        </select>
-        <br><br>
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
 
-        <label for="contact-time">Best Time to Contact You:</label>
-        <input type="time" id="contact-time" name="contact-time" required>
-        <br><br>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10,14}" placeholder="e.g., +2348012345678" title="Enter a valid phone number (10-14 digits, optional country code)" required>
+                        </div>
 
-        <input type="button" onclick="alert('Message Sent!')" value="Submit">
-    </form>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
 
-    
+                        <div class="form-group">
+                            <label for="message">Your Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
 
-    <h2>Frequently Asked Questions (FAQs)</h2>
-    <ul>
-        <li>
-            <h3> What are the check-in and check-out times?</h3>
-            <p>Check-in is from 2:00 PM, and check-out is before 12:00 PM.</p>
-        </li>
-        <li>
-            <h3> Is parking available?</h3>
-            <p>Yes, we offer free parking for all our guests.</p>
-        </li>
-        <li>
-            <h3> Do you accept card payments?</h3>
-            <p>Yes, we accept Visa, MasterCard, and mobile payments.</p>
-        </li>
-        <li>
-            <h3> Can I bring my pet?</h3>
-            <p>Unfortunately, we do not allow pets in the hotel.</p>
-        </li>
-        <li>
-            <h3> What is your cancellation policy?</h3>
-            <p>Cancellations made 48 hours before check-in are free of charge.</p>
-        </li>
-    </ul>
-    
-    
-    <h2>Follow Us</h2>
-    <div class="social-icons">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-    
+                        <div class="form-group">
+                            <label for="contact-method">Preferred Contact Method:</label>
+                            <select id="contact-method" name="contact-method" required>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                            </select>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="contact-time">Best Time to Contact You:</label>
+                            <input type="time" id="contact-time" name="contact-time">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div id="form-message" class="hidden">Thank you for your message! We will get back to you shortly.</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="faqs" class="faqs-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find quick answers to our most common guest inquiries.</p>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> What are the check-in and check-out times?</h3>
+                        <p class="faq-answer">Check-in is from 2:00 PM, and check-out is before 12:00 PM (noon).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> Is parking available?</h3>
+                        <p class="faq-answer">Yes, we offer complimentary self-parking and valet parking for all our registered guests.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> Do you accept card payments?</h3>
+                        <p class="faq-answer">Absolutely. We accept all major credit and debit cards, including Visa, MasterCard, American Express, and Verve. Mobile payments are also welcome.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> Can I bring my pet?</h3>
+                        <p class="faq-answer">Unfortunately, while we love animals, Scorpion Hotel maintains a strict no-pet policy to ensure the comfort and safety of all our guests.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> What is your cancellation policy?</h3>
+                        <p class="faq-answer">Cancellations made 48 hours prior to the standard check-in time (2:00 PM) are free of charge. Cancellations within 48 hours or no-shows may incur a one-night room charge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h3>Scorpion Hotel</h3>
+                <p>Experience unparalleled luxury and comfort in the heart of Abuja. Your serene escape awaits.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                   <li><a href="about.html">About</a></li>
+                    <li><a href="rooms.html">Rooms & Suites</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Ave, Abuja, Nigeria</p>
+                <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@scorpionhotel.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2025 Scorpion Hotel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Existing script for contact form
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formMessage = document.getElementById('form-message');
+            
+            console.log('Form Submitted!');
+            
+            formMessage.textContent = 'Thank you for your message! We will get back to you shortly.';
+            formMessage.classList.remove('hidden');
+            formMessage.classList.add('visible');
+
+            // Optionally, clear the form after a delay
+            setTimeout(() => {
+                this.reset();
+                formMessage.classList.remove('visible');
+                formMessage.classList.add('hidden');
+            }, 5000); // Clear after 5 seconds
+        });
+
+        // SCRIPT FOR FAQ ACCORDION
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                
+                // Toggle the 'active' class on the question itself
+                question.classList.toggle('active');
+
+                // Toggle the display of the answer
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
